@@ -51,12 +51,13 @@ int main(int argc, char *argv[]) {
     }
 
     int decimal;
+    printf("First %d decimals: ", n);
     for (int i = 0; i < n; ++i) {
         if (fscanf(sourceFile, "%d", &decimal) != 1) {
             printf("Error reading decimal number from source file.\n");
             break;
         }
-
+        printf("%d ", decimal);
         fprintf(destinationFile, "The binary equivalent of %d is ", decimal);
         decimalToBinary(decimal, destinationFile);
         fprintf(destinationFile, "\n");
@@ -72,7 +73,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    printf("Content of the first %d decimal and their equivalent binary numbers:\n", n);
+    printf("\nThe binary equivalents are:\n");
     char line[100];
     while (fgets(line, sizeof(line), destinationFile)) {
         printf("%s", line);
