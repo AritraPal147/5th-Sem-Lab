@@ -46,17 +46,17 @@ void swap(int* a, int* b) {
 // Partition function for QuickSort
 int partition(int arr[], int low, int high, long long int* comparisons) {
     int pivot = arr[high];
-    int i = (low - 1);
+    int i = low;
 
     for (int j = low; j <= high - 1; j++) {
         (*comparisons)++;
         if (arr[j] < pivot) {
-            i++;
             swap(&arr[i], &arr[j]);
+            i++;
         }
     }
-    swap(&arr[i + 1], &arr[high]);
-    return (i + 1);
+    swap(&arr[i], &arr[high]);
+    return i;
 }
 
 // QuickSort function
@@ -127,7 +127,7 @@ int main() {
     int option, numElements;
 
     do {
-        printf("MAIN MENU (MERGE SORT)\n");
+        printf("MAIN MENU (QUICK SORT)\n");
         printf("1. Ascending Data\n");
         printf("2. Descending Data\n");
         printf("3. Random Data\n");
