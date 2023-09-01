@@ -6,6 +6,8 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 
+// contrary
+
 int main(int argv, char *  argc[]) {
 	char *ip = argc[1];
 	int port = atoi(argc[2]);
@@ -37,33 +39,20 @@ int main(int argv, char *  argc[]) {
 	listen(server_sock, 5);
 	printf("Listening...\n");
 
-	//while(1) {
-		addr_size = sizeof(client_addr);
-		client_sock = accept(server_sock, (struct sockaddr*)&client_addr, &addr_size);
-		printf("[+]Client connected.\n");
-	
-		//bzero(buffer, 1024);
-		//recv(client_sock, buffer, sizeof(buffer), 0);
-		//int num1 = atoi(buffer); 
-		//printf("1st Number: %d\n", num1);
+	addr_size = sizeof(client_addr);
+	client_sock = accept(server_sock, (struct sockaddr*)&client_addr, &addr_size);
+	printf("[+]Client connected.\n");
 		
-		char exit[1024] = "exit";
-		do {
-			bzero(buffer, 1024);
-			recv(client_sock, buffer, sizeof(buffer), 0);
-			printf("Recieved Message: %s\n", buffer);
-		} while (strcmp(exit, buffer) != 0);
-	
+	char exit[1024] = "exit";
+	do {
 		bzero(buffer, 1024);
-		//strcpy(buffer, "HI, THIS IS SERVER. HAVE A NICE DAY!!!");
-		//printf("Server: %s\n", buffer);
-		//printf("Sum: %d", num1 + num2);
-		//sprintf(buffer, "%d", num1+num2); 
-		//send(client_sock, buffer, strlen(buffer), 0);
-		//func(server_sock);
-		close(client_sock);
-		printf("[+]Client disconnected.\n\n");
-	//
+		recv(client_sock, buffer, sizeof(buffer), 0);
+		printf("Recieved Message: %s\n", buffer);
+	} while (strcmp(exit, buffer) != 0);
+	
+	bzero(buffer, 1024);
+	close(client_sock);
+	printf("[+]Client disconnected.\n\n");
 
 	return 0;
 }

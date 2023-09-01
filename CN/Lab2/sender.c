@@ -27,24 +27,13 @@ int main(int argc, char *argv[]) {
 	connect(sock, (struct sockaddr*)&addr, sizeof(addr));
 	printf("Connected to the server.\n");
 
-	//bzero(buffer, 1024);
-	//strcpy(buffer, "HELLO, THIS IS CLIENT.");
-	//printf("Enter a number: ");
-	//scanf("%s", buffer); 
-	//send(sock, buffer, strlen(buffer), 0);
 	char exit[1024] = "exit";
 	do {
 		bzero(buffer, 1024);
-		//strcpy(buffer, "HELLO, THIS IS CLIENT.");
 		printf("Enter Message to be sent: ");
 		scanf("%s", buffer); 
 		send(sock, buffer, strlen(buffer), 0);
 	} while (strcmp(exit, buffer) != 0);
-
-	//bzero(buffer, 1024);
-	//recv(sock, buffer, sizeof(buffer), 0);
-	//printf("Sum: %s\n", buffer);
-	//sendData(sock);
 	close(sock);
 	printf("Disconnected from the server.\n");
 	return 0;
