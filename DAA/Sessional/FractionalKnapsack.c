@@ -78,11 +78,8 @@ void heapSort(struct ITEM arr[], int n) {
 // Function to perform Fractional Knapsack and print the result
 void fractionalKnapsack(struct ITEM items[], int n, float capacity) {
     // Sort items based on profit/weight ratio using heap sort
+    // Can use any sorting algorithm
     heapSort(items, n);
-    // printf("\nItem No\tProfit\t\tWeight\t\tProfit/Weight Ratio\n");
-	// for (int i=0; i<n; i++)
-	// 	printf("%d\t%.6f\t%.6f\t%.6f\n", items[i].item_id, items[i].item_profit, items[i].item_weight, items[i].profit_weight_ratio);
-	// printf("\n\n");
 
     printf("\nItem No\tProfit\t\tWeight\t\tAmount to be taken\n");
 
